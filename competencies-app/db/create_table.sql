@@ -1,0 +1,1 @@
+create table useless_table (id serial primary key, name text)

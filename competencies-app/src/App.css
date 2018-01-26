@@ -9,3 +9,10 @@
   flex-direction: row;
   justify-content: space-around;
 }
+
+.container{
+  height: 400px;
+  display:flex;
+  background: teal;
+  margin: 40px;
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import TakesProps from '../takesProps/takesProps'
 
 
 class About extends React.Component {
@@ -12,6 +13,9 @@ class About extends React.Component {
         return(
             <div className="About">
                 About page
+                <div className="container">
+                    <TakesProps num={42}/> {/*38C */}
+                </div>
             </div>
         )
     }

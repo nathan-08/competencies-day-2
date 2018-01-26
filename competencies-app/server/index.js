@@ -26,4 +26,19 @@ app.get('/api/get', (req, res) => {
     res.status(200).send("okeydokey")
 })
 
+app.put('/api/put', (req,res)=>{
+    values=Object.assign({}, values, req.body)
+    res.status(200).json(values)
+})
+
+app.post('/api/post', (req,res)=>{
+    values=req.body;
+    res.status(200).json(values)
+})
+
+app.delete('/api/delete', (req,res)=>{
+    values={}
+    res.status(200).send('it is done.')
+})
+
 // === === === === === //

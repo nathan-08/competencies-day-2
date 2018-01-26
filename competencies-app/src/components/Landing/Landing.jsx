@@ -24,9 +24,8 @@ export default class Landing extends React.Component{  //37E-2
         return(
             <div className="Landing">
                 <div className="container">
-                <TakesProps/> 
                     <div>
-                        <input onChange={this.inputChange} value={this.state.inputValue} placeholder={"enter a number to travel through space and time."}></input>
+                        <input style={{height:"60px", width:320}}onChange={this.inputChange} value={this.state.inputValue} placeholder={"enter a number to travel through space and time."}></input>
                         <button onClick={this.enterClicked}>Enter</button>
                     </div>
                 </div>

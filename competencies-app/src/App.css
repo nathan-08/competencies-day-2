@@ -12,7 +12,10 @@
 
 .container{
   height: 400px;
+  padding: 18px 0;
   display:flex;
   background: teal;
   margin: 40px;
+  flex-direction: row;
+  justify-content: space-around;
 }

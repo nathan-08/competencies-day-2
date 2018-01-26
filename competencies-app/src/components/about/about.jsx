@@ -12,9 +12,9 @@ class About extends React.Component {
     render(){
         return(
             <div className="About">
-                About page
                 <div className="container">
-                    <TakesProps num={42}/> {/*38C */}
+                    <TakesProps num={this.props.match.params.number}/> {/*38C */}
+                    
                 </div>
             </div>
         )

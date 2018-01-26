@@ -13,7 +13,8 @@ export default class TakesProps extends React.Component{
             <div className="TakesProps">
                 <div className="small-container">
                     <p>this component takes these props from parent:</p>
-                    <p>Num: {this.props.num}</p>  {/*38D */}
+                    
+                    {this.props.num && <div><p>Num: {this.props.num}</p> <p>Neat, huh?</p></div>}  {/*38D */}
                 </div>
             </div> 
         )

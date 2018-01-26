@@ -24,7 +24,7 @@ massive(process.env.DB_CONNECTION).then(db => {
     app.set('db', db)
 })
 
-app.listen(3049, () => { console.log('i\'m always watching') })
+app.listen(process.env.PORT, () => { console.log('i\'m always watching') })
 
 
 // === endpoints === //
@@ -55,5 +55,16 @@ app.get('/api/getuser', (req, res)=>{ //use query i.e. api/getuser?name=nate
     let user = users.find(user=>req.query.name==user.name)
     if(user) res.status(200).json(user)
     res.status(200).send('no such user found.')
+})
+app.post('/api/addmessage', (req,res)=>{ // json format: {"message": [your message here]}
+    const db = app.get('db')
+    db.add_message(req.body.message)
+    res.status(200).send('message added')
+})
+app.get('/api/getmessage', (req,res)=>{ // will grab all db messages and return to user
+    const db = app.get('db')
+    db.get_messages().then(messages=>{
+        res.status(200).json(messages)
+    })
 })
 // === === === === === //

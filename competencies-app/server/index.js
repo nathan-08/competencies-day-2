@@ -1,6 +1,12 @@
 let values = {
     name: 'corydon'
 }
+let users=[
+    {id:1,
+    name:'nate'},
+    {id:2,
+    name:'bri'}
+]
 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -40,5 +46,14 @@ app.delete('/api/delete', (req,res)=>{
     values={}
     res.status(200).send('it is done.')
 })
-
+app.get('/api/getuser/:id', (req, res)=>{
+    let user = users.find(user=>user.id==req.params.id)
+    res.status(200).json(user)
+})
+app.get('/api/getuser', (req, res)=>{ //use query i.e. api/getuser?name=nate
+    console.log('req.query',req.query)
+    let user = users.find(user=>req.query.name==user.name)
+    if(user) res.status(200).json(user)
+    res.status(200).send('no such user found.')
+})
 // === === === === === //

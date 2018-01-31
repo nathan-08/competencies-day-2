@@ -4,9 +4,7 @@ import './takesProps.css'
 export default class TakesProps extends React.Component{
     constructor(props){
         super(props)
-        this.state={
-            data:null
-        }
+        
     }
     render(){
         return(

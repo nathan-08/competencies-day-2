@@ -29,7 +29,7 @@ app.listen(process.env.PORT, () => { console.log('i\'m always watching') })
 
 // === endpoints === //
 app.get('/api/get', (req, res) => {
-    res.status(200).send("okeydokey")
+    res.status(200).json(values)
 })
 
 app.put('/api/put', (req,res)=>{

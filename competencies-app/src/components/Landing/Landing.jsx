@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 import './Landing.css'
 import TakesProps from '../takesProps/takesProps'
-import { setValue } from '../../ducks/reducer';
+import { setValue, callApi } from '../../ducks/reducer';
 import {connect} from 'react-redux'
 
 class Landing extends React.Component {  //37E-2
@@ -20,6 +20,9 @@ class Landing extends React.Component {  //37E-2
         this.getRequest=this.getRequest.bind(this)
         this.setReduxValue=this.setReduxValue.bind(this)
         this.reduxInputChange=this.reduxInputChange.bind(this)
+    }
+    componentDidMount(){
+        this.props.callApi();
     }
     inputChange(e) {
         this.setState({ inputValue: e.target.value })
@@ -51,13 +54,14 @@ class Landing extends React.Component {  //37E-2
                     </div>
                     <div>
                         <button onClick={this.getRequest}>click to get from server</button>
-                        <p>got this: {this.state.fromServer}</p>
+                        <p>got this: {JSON.stringify(this.state.fromServer)}</p>
                     </div>
                     <div>
                         <input style={{ height: "60px", width: 320, margin:20 }} onChange={this.reduxInputChange} value={this.state.reduxInput} placeholder={"type a value"}></input>
                         <div>
                             <button  onClick={this.setReduxValue}>click to set redux value</button>
                             <p>redux value: {this.props.value}</p>
+                            <p>from swapi: {this.props.apicall}</p>
                         </div>
                     </div>
                 </div>
@@ -68,8 +72,9 @@ class Landing extends React.Component {  //37E-2
 
 function mapStateToProps(state){
     return{
-        value: state.value
+        value: state.value,
+        apicall: state.apicall
     }
 }
 
-export default connect(mapStateToProps, { setValue })(Landing)
+export default connect(mapStateToProps, { setValue, callApi })(Landing)
